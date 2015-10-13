@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="blocks/morsle/db" VERSION="20150905" COMMENT="XMLDB file for Moodle blocks/morsle"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="block_morsle" COMMENT="Default comment for block_morsle, please edit me">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="morsle_active" COMMENT="morsle_active table retrofitted from MySQL">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="18" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="18" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="shortname" TYPE="char" LENGTH="255" NOTNULL="false" DEFAULT="null" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="created" TYPE="int" LENGTH="18" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="updated" TYPE="int" LENGTH="18" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="readfolderid" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="writefolderid" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="groupname" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="siteid" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="password" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="mdl_morsacti_cou_uix" TYPE="unique" FIELDS="courseid"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="shortname" UNIQUE="false" FIELDS="shortname"/>
+        <INDEX NAME="status" UNIQUE="false" FIELDS="status"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="morsle_event" COMMENT="morsle_event table retrofitted from MySQL">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="18" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="eventid" TYPE="int" LENGTH="9" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="googleid" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" DEFAULT="" SEQUENCE="false"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="format" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="18" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="shortname" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="groupid" TYPE="int" LENGTH="18" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="18" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="repeatid" TYPE="int" LENGTH="18" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="modulename" TYPE="char" LENGTH="20" NOTNULL="true" DEFAULT="" SEQUENCE="false"/>
+        <FIELD NAME="instance" TYPE="int" LENGTH="18" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="eventtype" TYPE="char" LENGTH="20" NOTNULL="true" DEFAULT="" SEQUENCE="false"/>
+        <FIELD NAME="timestart" TYPE="int" LENGTH="18" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timeduration" TYPE="int" LENGTH="18" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="visible" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="1" SEQUENCE="false"/>
+        <FIELD NAME="uuid" TYPE="char" LENGTH="36" NOTNULL="true" DEFAULT="" SEQUENCE="false"/>
+        <FIELD NAME="sequence" TYPE="int" LENGTH="18" NOTNULL="true" DEFAULT="1" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="18" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <INDEXES>
+        <INDEX NAME="mdl_even_grocouvisuse_ix" UNIQUE="false" FIELDS="groupid, courseid, visible, userid"/>
+        <INDEX NAME="mdl_even_cou_ix" UNIQUE="false" FIELDS="courseid"/>
+        <INDEX NAME="mdl_even_use_ix" UNIQUE="false" FIELDS="userid"/>
+        <INDEX NAME="mdl_even_tim_ix" UNIQUE="false" FIELDS="timestart"/>
+        <INDEX NAME="mdl_even_tim2_ix" UNIQUE="false" FIELDS="timeduration"/>
+        <INDEX NAME="shortname" UNIQUE="false" FIELDS="shortname"/>
+        <INDEX NAME="googleid" UNIQUE="false" FIELDS="googleid"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

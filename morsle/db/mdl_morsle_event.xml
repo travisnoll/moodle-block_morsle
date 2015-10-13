@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 3.5.1
+- http://www.phpmyadmin.net
+-
+- Host: localhost
+- Generation Time: Sep 05, 2015 at 05:29 PM
+- Server version: 5.6.13
+- PHP Version: 5.4.43
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="moodle264lae" collation="utf8_general_ci" charset="utf8">
+            <pma:table name="mdl_morsle_event">
+                CREATE TABLE `mdl_morsle_event` (
+                  `id` bigint(10) unsigned NOT NULL AUTO_INCREMENT,
+                  `eventid` int(11) DEFAULT NULL,
+                  `googleid` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+                  `name` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+                  `description` text CHARACTER SET utf8 NOT NULL,
+                  `format` smallint(4) unsigned NOT NULL DEFAULT '0',
+                  `courseid` bigint(10) unsigned NOT NULL DEFAULT '0',
+                  `shortname` varchar(255) CHARACTER SET utf8 NOT NULL,
+                  `groupid` bigint(10) unsigned NOT NULL DEFAULT '0',
+                  `userid` bigint(10) unsigned NOT NULL DEFAULT '0',
+                  `repeatid` bigint(10) unsigned NOT NULL DEFAULT '0',
+                  `modulename` varchar(20) CHARACTER SET utf8 NOT NULL DEFAULT '',
+                  `instance` bigint(10) unsigned NOT NULL DEFAULT '0',
+                  `eventtype` varchar(20) CHARACTER SET utf8 NOT NULL DEFAULT '',
+                  `timestart` bigint(10) unsigned NOT NULL DEFAULT '0',
+                  `timeduration` bigint(10) unsigned NOT NULL DEFAULT '0',
+                  `visible` smallint(4) NOT NULL DEFAULT '1',
+                  `uuid` varchar(36) CHARACTER SET utf8 NOT NULL DEFAULT '',
+                  `sequence` bigint(10) unsigned NOT NULL DEFAULT '1',
+                  `timemodified` bigint(10) unsigned NOT NULL DEFAULT '0',
+                  PRIMARY KEY (`id`),
+                  KEY `mdl_even_grocouvisuse_ix` (`groupid`,`courseid`,`visible`,`userid`),
+                  KEY `mdl_even_cou_ix` (`courseid`),
+                  KEY `mdl_even_use_ix` (`userid`),
+                  KEY `mdl_even_tim_ix` (`timestart`),
+                  KEY `mdl_even_tim2_ix` (`timeduration`),
+                  KEY `shortname` (`shortname`),
+                  KEY `googleid` (`googleid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=14965 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='For everything with a time associated to it';
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+</pma_xml_export>
